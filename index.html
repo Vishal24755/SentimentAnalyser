@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App 04: Text Sentiment Analyzer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="app-container">
+    <header class="app-header">
+      <div class="header-icon">🎭</div>
+      <div>
+        <h1>Text Sentiment Analyzer</h1>
+        <p class="subtitle">Classify sentence or paragraph tone as Positive, Negative, or Neutral with a rule-based lexicon.</p>
+      </div>
+    </header>
+
+    <main class="app-main">
+      <div class="card">
+        <label for="textInput" class="form-label">Enter Sentence or Paragraph:</label>
+        <textarea id="textInput" class="form-textarea" rows="6" placeholder="Type or paste your text here (e.g. 'I am delighted with the outstanding performance and wonderful customer support.')..."></textarea>
+
+        <div class="button-row">
+          <button id="btnAnalyze" class="btn btn-primary">Analyze Sentiment</button>
+          <button id="btnClear" class="btn btn-outline-danger">Clear</button>
+        </div>
+
+        <div class="sample-buttons-row">
+          <span class="sample-lbl">Try Sample Sentences:</span>
+          <button id="btnSamplePos" class="btn btn-sm btn-secondary">Positive Sample</button>
+          <button id="btnSampleNeg" class="btn btn-sm btn-secondary">Negative Sample</button>
+          <button id="btnSampleNeu" class="btn btn-sm btn-secondary">Neutral Sample</button>
+        </div>
+
+        <div id="toast" class="toast"></div>
+
+        <!-- Results Section -->
+        <div id="resultsSection" class="results-section" style="display: none;">
+          <!-- Classification Banner -->
+          <div id="sentimentBanner" class="sentiment-banner neutral">
+            <span id="sentimentIcon" class="sentiment-icon">😐</span>
+            <div>
+              <h2 id="sentimentLabel" class="sentiment-label">Neutral</h2>
+              <p id="sentimentDesc" class="sentiment-desc">Balanced, objective, or neutral tone.</p>
+            </div>
+            <div id="scoreBadge" class="score-badge">Score: 0.00</div>
+          </div>
+
+          <!-- Influential Words Detected -->
+          <div class="words-influence-box">
+            <h3 class="section-title">Words Influencing the Score:</h3>
+            <div id="influentialWords" class="words-container">
+              <!-- Dynamically populated pills -->
+            </div>
+          </div>
+
+          <!-- Important Disclaimer Callout -->
+          <div class="alert-box alert-warning">
+            <div class="alert-icon">⚠️</div>
+            <div>
+              <strong>Methodology Notice (Beginner Rule-Based Model):</strong>
+              <p>This application uses a transparent, documented <strong>dictionary-based keyword rule system</strong> (AFINN-based polarity weights from -5 to +5). It handles basic negation (e.g., "not good" or "never happy") and word intensifiers ("very", "extremely"). It is <em>not</em> a deep neural network or large language model (LLM), so complex sarcasm, nuanced metaphors, or double negatives may produce simplified results.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="app-footer">
+      <p>App 04: Text Sentiment Analyzer &bull; Part of Text and Speech Analysis Suite</p>
+    </footer>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
